@@ -11,8 +11,6 @@ let profileRouter = require ('./routes/profile');
 let registerRouter = require ('./routes/register');
 let searchResultsRouter = require ('./routes/search-results');
 let loginRouter = require ('./routes/login')
-let indexxRouter = require('./routes/indexx')
-
 
 var app = express();
 
@@ -33,7 +31,6 @@ app.use('/profile', profileRouter);
 app.use('/register', registerRouter);
 app.use('/search-results', searchResultsRouter);
 app.use('/login', loginRouter);
-app.use('/indexx', indexxRouter);
 
 
 
