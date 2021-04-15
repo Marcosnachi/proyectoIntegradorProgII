@@ -91,6 +91,12 @@ hr {
   align-items: center;
 }
 
+label { font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(10, 10, 10); display: block; }
+.campo { margin-bottom: 20px; }
+.campo { width: 254px; height: 30px; margin-bottom: 20px; border: 1px Solid #84AA00; background: #84AA00; }
+#comentario { width: 294px; height: 193px; }
+#boton_enviar { width: 88px; height: 27px; margin-left: 80px; background: #84AA00; border: 1px Solid #84AA00; background-image: url(boton.jpg); text-indent: -9999px; }
+
 .search-form_input {
   border: solid 1px var(--light-gray);
   display: block;
