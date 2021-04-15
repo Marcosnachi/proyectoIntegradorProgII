@@ -42,7 +42,10 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color: rgba(51, 51, 51, 0.824);
+  font-style: normal;
+  font-weight: 400;
+  
 }
 
 figure {
@@ -172,6 +175,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .product-box {
@@ -200,9 +204,10 @@ hr {
 }
 
 .product-box_data h2 {
-  font-size: 2.4em;
+  font-size: 2.3em;
   font-weight: 300;
   margin: 0;
+  font-family: 'Nunito', sans-serif;
 }
 
 .product-box_data span {
