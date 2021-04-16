@@ -5,6 +5,11 @@ const profileController = {
         return res.render ('profile')
     },
 
+    show: function (req, res) {
+        
+        return res.render ('profile')
+    },
+
     edit : function (req, res) {
         
         return res.render ('profileEdit')
