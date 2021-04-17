@@ -5,6 +5,6 @@ const profileController = require('../controllers/profileController')
 
 router.get('/', profileController.index);
 router.get('/edit', profileController.edit);
-router.get('/id/:id', profileController.show);
+router.get('/id/:id', profileController.index);
 
 module.exports = router;

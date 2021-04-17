@@ -337,8 +337,10 @@ label { font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(1
 
 .product-detail-description {
   padding: 15px 15px 15px 40px;
-  font-size: 1.8em;
+  font-size: 1.9em;
+  font-style: italic;
   line-height: 1.5;
+  font-family: 'Dosis', sans-serif;
 }
 
 .product-detail-price {
