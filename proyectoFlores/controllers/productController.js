@@ -7,7 +7,7 @@ const productController = {
 
         db.Product.findByPk(id)
             .then(data =>{
-                return res.render('product', { product: data });
+                return res.render('product', { flores : data });
             })
             .catch(error =>{
                 console.log(error);
