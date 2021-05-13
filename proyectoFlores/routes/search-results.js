@@ -5,5 +5,4 @@ const searchResultsController = require('../controllers/searchResultsController'
 
 router.get('/', searchResultsController.index);
 
-
 module.exports = router;

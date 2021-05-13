@@ -1,10 +1,6 @@
-const db = require('../database/models'); //Requerimos la conexión a la base de datos y todos los modelos.
-const op = db.Sequelize.Op; 
+const db = require('../database/models');
 
 const registerController = {
-
-
-
 
     index: function (req, res){
 
@@ -43,7 +39,7 @@ const registerController = {
         db.User.create(user)
         .then (function (){
 
-        res.redirect ('/')
+        res.redirect ('/newUser')
 
         })
             .catch(function (error){

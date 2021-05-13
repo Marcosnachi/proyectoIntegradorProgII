@@ -17,21 +17,26 @@
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
 				
-				<form action="/profile" method="GET">
+				<form class="col-12" action="/product/store" method="POST">
 					
 					<p>
-					<label for="nombre"> Nombre del producto:</label>
-					<input type="text" name="nombre" id="nombre">
+					<label for="productName"> Nombre del producto:</label>
+					<input type="text" name="productName" value="">
 					</p>
 
 					<p>
-					<label for="descripcion"> Descripcion:</label>
-					<textarea type="text" name="descripcion" id=""></textarea>
+					<label for="description"> Descripcion:</label>
+					<textarea type="text" name="description" value=""></textarea>
 					</p>
 
 					<p>
 					<label for="imagen"> Imagen del producto:</label>
-					<input type="file" name="imagen" id="imagen">
+					<input type="file" name="image" value="">
+					</p>
+
+					<p>
+					<label for="userId"> Usuario:</label>
+					<input type="number" name="userId" value="">
 					</p>
 
 					<p>
