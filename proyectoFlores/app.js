@@ -9,7 +9,6 @@ var usersRouter = require('./routes/users');
 let productRouter = require ('./routes/product');
 let profileRouter = require ('./routes/profile');
 let registerRouter = require ('./routes/register');
-let searchResultsRouter = require ('./routes/search-results');
 let loginRouter = require ('./routes/login')
 
 var app = express();
@@ -29,7 +28,6 @@ app.use('/users', usersRouter);
 app.use('/product', productRouter);
 app.use('/profile', profileRouter);
 app.use('/register', registerRouter);
-app.use('/search-results', searchResultsRouter);
 app.use('/login', loginRouter);
 
 

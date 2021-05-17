@@ -1,4 +1,5 @@
 const db = require('../database/models');
+const op = db.Sequelize.Op
 
 const indexController = {
     index: function(req, res){
@@ -42,7 +43,25 @@ const indexController = {
         })
 
 
-    }
+    },
+
+
+    search: function(req, res){
+        let infoABuscar = req.query.search; //obtengo la info de la querystring.
+
+        db.Product.findAll({
+            //SELECT * FROM movies
+            //WHERE title LIKE "%potter%"
+            where: [
+                { ProductName : {[op.like]: '%'+infoABuscar+'%'}}
+            ]})
+            .then( data => {
+                return res.render('searchResults',{flores : data});
+            })
+            .catch( error => {
+                console.log(error);
+            })
+    },
 
 
 }
