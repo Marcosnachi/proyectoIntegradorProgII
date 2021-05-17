@@ -231,6 +231,8 @@ label { font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(1
   height: 0;
   transition: 300ms;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .product-box_data i {
