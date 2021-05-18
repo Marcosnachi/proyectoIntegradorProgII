@@ -29,6 +29,22 @@ const indexController = {
 
     },
 
+     newComment : function (req, res) {
+        
+        db.Product.findAll()
+        .then (function (){
+            
+            return res.render ('commentCargado');
+            
+        })
+
+        .catch(function (error){
+            console.log(error);
+        })
+
+
+    },
+
     new: function (req, res) {
             
         db.User.findAll()

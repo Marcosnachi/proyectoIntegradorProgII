@@ -45,7 +45,36 @@ const productController = {
 
         })
 
-    }
+    },
+
+    addComment: function (req, res) {
+
+        let data = req.body
+        
+        let comment = {
+
+            text: data.text,
+            userId: data.userId,
+            productId: data.productId
+            
+        }
+
+        db.Comment.create(comment)
+        .then(function () {
+
+            return res.redirect ('/commentCargado');
+            
+        })
+
+        .catch(function (error) {
+            
+            console.log(error);
+
+        })
+
+    },
+        
+    
 
 }
 

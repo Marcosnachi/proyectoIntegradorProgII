@@ -75,8 +75,22 @@
 							</div>
 						</article>
 					</section>
-					<form class="form" action="#" method="GET">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+					<form class="form" action="/product/addComment" method="POST">
+						<input class="form-input" type="text" value="" name="text" placeholder="Agregar comentario">
+						
+						    <p>
+							<label for="productId"> Producto que se comenta:</label>
+							<input type="number" name="productId" value="">
+							</p>
+		
+							<p>
+							<label for="userId"> Usuario que comenta:</label>
+							<input type="number" name="userId" value="">
+							</p>
+						
+						
+						
+						
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
 				</div>
