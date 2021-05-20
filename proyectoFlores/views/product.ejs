@@ -8,7 +8,11 @@
 <body>
 
 	<!-- Header -->
-	<%- include('./partials/headerLogueado') %> 
+	<% if (locals.nombre) { %>
+		<%- include('./partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
 	<!-- /Header -->
 
 	<!-- product detail -->

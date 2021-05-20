@@ -1,4 +1,6 @@
+const bcrypt = require('bcryptjs');
 const db = require('../database/models');
+const op = db.Sequelize.Op;
 
 const registerController = {
 
@@ -32,14 +34,14 @@ const registerController = {
             birthDate: data.birthDate, 
             dni: data.dni, 
             email: data.email, 
-            password: data.password, 
+            password: bcrypt.hashSync(data.password, 10),
             
         }
 
         db.User.create(user)
         .then (function (){
 
-        res.redirect ('/newUser')
+        return res.redirect ('/newUser')
 
         })
             .catch(function (error){

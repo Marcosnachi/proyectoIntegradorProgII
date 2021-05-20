@@ -33,6 +33,17 @@
 				</ul>
 	
 				<ul class="right-navbar">
+
+					<% if(locals.name){ %>
+						<form action="/login/logout" method="POST">
+						  <button type="submit">Logout</button>
+						</form>
+					  <%} else {%>
+						<a href="/login">Ingresar</a>
+						<a href="/register">Registrate</a>
+					  <%}%>
+
+
 					<li>
 						<a href="/register">Creá tu cuenta <i class="far fa-address-card"></i>
 						</a>
