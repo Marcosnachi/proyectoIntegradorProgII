@@ -19,6 +19,15 @@ const loginController = {
             console.log('en login controller');
             console.log(req.session.user);
 
+            // Al clickear en recordame, creamos la cookie
+
+           if (req.body.rememberme != undefined){
+               
+                res.cookie('userId', user.id),{
+                    maxAge: 1000 * 60 * 5
+                }
+           }
+
             return res.redirect('/');
 
         })
@@ -30,9 +39,9 @@ const loginController = {
         req.session.destroy();
 
         //Destruir la coockie
-
+        res.clearCookie('userId');
         
-        //redireccionar a hone
+        //redireccionar a home
         return res.redirect('/')
     }
 

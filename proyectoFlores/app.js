@@ -10,7 +10,8 @@ var usersRouter = require('./routes/users');
 let productRouter = require ('./routes/product');
 let profileRouter = require ('./routes/profile');
 let registerRouter = require ('./routes/register');
-let loginRouter = require ('./routes/login')
+let loginRouter = require ('./routes/login');
+const db = require('./database/models');
 
 var app = express();
 
@@ -40,6 +41,37 @@ app.use(function(req, res, next){
   } 
   return next(); //Clave para que el proceso siga adelante.  
 })
+
+
+//Gestionar la coockie.
+app.use(function(req, res, next){
+
+  //Solo quiero hacerlo si tengo una coockie
+  if(req.cookies.userId != undefined && req.session.user == undefined){
+    let cookieId = req.cookies.userId;
+    
+    db.User.findByPk(cookieId)
+    .then(function (user) {
+
+      req.session.user = user; 
+      res.locals = user; 
+
+      return next();
+
+    })
+    .catch(function (error) 
+    
+    {console.log(error)})
+
+  } else {
+
+    //Si no tengo cookie quiero que el programa continue
+    return next();
+  }
+
+})
+  
+    
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
