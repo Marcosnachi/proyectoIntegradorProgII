@@ -12,39 +12,29 @@
 	<!-- /Header -->
 
 	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
-			</div>
-				
-				<form class="col-12" action="/product/store" method="POST">
-					
-					<p>
-					<label for="productName"> Nombre del producto:</label>
-					<input type="text" name="productName" value="">
-					</p>
+		<div class="row">			
+			<div id="wrapper">
+				<div id="div2">
+					<h2>Agregar producto</h2>
+					<form class="" action="/product/store" method="POST">
+						<br>
+						<p>Nombre del producto</p>
+						<li><input type="text" name="productName" value=""></li>
 
-					<p>
-					<label for="description"> Descripcion:</label>
-					<textarea type="text" name="description" value=""></textarea>
-					</p>
+						<p>Descripción</p>
+						<li><textarea type="text" name="description" value=""></textarea></li>
 
-					<p>
-					<label for="imagen"> Imagen del producto:</label>
-					<input type="file" name="image" value="">
-					</p>
+						<p>Imágen del producto</p>
+						<input type="file" name="image" value="">
 
-					<p>
-					<label for="userId"> Usuario:</label>
-					<input type="number" name="userId" value="">
-					</p>
+						<p>Usuario</p>
+						<input type="number" name="userId" value="">
 
-					<p>
-					<input type="submit" value="Agregar">
-					</p>
+						<li><input type="submit" value="Enviar"></li>
 
-				</form>
-
+					</form>
+				</div>
+			</div>		
 		</div>
 	</div>	
 
