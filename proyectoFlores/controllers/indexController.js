@@ -68,9 +68,23 @@ const indexController = {
         db.Product.findAll({
             //SELECT * FROM movies
             //WHERE title LIKE "%potter%"
+
             where: [
-                { ProductName : {[op.like]: '%'+infoABuscar+'%'}}
-            ]})
+                {
+                [op.or]:[
+                    { 
+                        productName : {
+                            [op.like]: '%'+infoABuscar+'%'
+                        }
+                    },
+                    { 
+                        description : {
+                            [op.like]: '%'+infoABuscar+'%'
+                        }
+                    }
+                ]
+            }]
+            })
             .then( data => {
                 return res.render('searchResults',{flores : data});
             })

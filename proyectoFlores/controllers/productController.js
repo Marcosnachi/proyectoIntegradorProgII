@@ -6,13 +6,13 @@ const productController = {
         let id = req.params.id;
 
         db.Product.findByPk(id)
-            .then(data =>{
-                return res.render('product', { flores : data });
-            })
-            .catch(error =>{
-                console.log(error);
-            })
+        .then(data =>{
+            return res.render('product', { flores : data });
+        })
         
+        .catch(error =>{
+            console.log(error);
+        })
     },
 
     add: function (req,res) {

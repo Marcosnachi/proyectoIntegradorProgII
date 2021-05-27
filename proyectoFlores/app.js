@@ -31,22 +31,21 @@ app.use(session(
 ));
 
 app.use(function(req, res, next){
-  console.log('En session middleware');
-  console.log(req.session.user);
   if(req.session.user != undefined){
     res.locals = req.session.user;
-    console.log("entre en locals: ");
+
     console.log(res.locals);
+
     return next();
   } 
-  return next(); //Clave para que el proceso siga adelante.  
+  return next();
 })
 
 
 //Gestionar la coockie.
 app.use(function(req, res, next){
 
-  //Solo quiero hacerlo si tengo una coockie
+  //Solo quiero hacerlo si tengo una cookie
   if(req.cookies.userId != undefined && req.session.user == undefined){
     let cookieId = req.cookies.userId;
     
@@ -63,9 +62,8 @@ app.use(function(req, res, next){
     
     {console.log(error)})
 
-  } else {
-
-    //Si no tengo cookie quiero que el programa continue
+  } else { 
+    
     return next();
   }
 
