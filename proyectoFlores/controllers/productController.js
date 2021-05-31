@@ -48,21 +48,22 @@ const productController = {
     },
 
     addComment: function (req, res) {
-
         let data = req.body
+        let user = req.session.user
+        let id = req.params.id
         
         let comment = {
 
             text: data.text,
-            userId: data.userId,
-            productId: data.productId
+            userId: user.id,
+            productId: id
             
         }
-
+        res.send(comment)
         db.Comment.create(comment)
-        .then(function () {
+        .then(function (comment) {
 
-            return res.redirect ('/commentCargado');
+            return res.redirect (`/product/id/${comment.productId}`);
             
         })
 

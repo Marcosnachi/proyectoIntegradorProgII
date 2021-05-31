@@ -32,7 +32,7 @@ app.use(session(
 
 app.use(function(req, res, next){
   if(req.session.user != undefined){
-    res.locals = req.session.user;
+    res.locals.user = req.session.user;
 
     console.log(res.locals);
 
@@ -53,7 +53,7 @@ app.use(function(req, res, next){
     .then(function (user) {
 
       req.session.user = user; 
-      res.locals = user; 
+      res.locals.user = user; 
 
       return next();
 
