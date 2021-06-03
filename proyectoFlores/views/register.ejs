@@ -17,6 +17,13 @@
 				<div id="div2">
 					<h2>Registrarse</h2>
 					<p>¡Es gratis!</p>
+
+					<% if (locals.errors) { %> 
+
+						<p style="color:red"> <%= locals.errors.message %> </p>
+
+					<% } %>
+					
 					<form class="" action="/register/store" method="POST">
 
 						<li><input id="nombre" type="text" name="nombre" placeholder="Nombre" value=""><input id="apellido" type="text" placeholder="Apellidos" name="apellido" value=""></li>

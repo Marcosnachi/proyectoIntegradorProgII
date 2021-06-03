@@ -20,31 +20,103 @@ const registerController = {
     store: function (req, res){
 
         let data = req.body;
-        
-        let user = {
+        errors = {};
 
-            title: data.title,
-            nombre: data.nombre, 
-            apellido: data.apellido, 
-            birthDate: data.birthDate, 
-            dni: data.dni, 
-            email: data.email, 
-            password: bcrypt.hashSync(data.password, 10),
+
+        //Vamos a chequear que el mail no este vacio
+        if (data.nombre == "") {
             
-        }
+            errors.message = "El nombre es obligatorio";
+            res.locals.errors = errors;
+            
+            return res.render ('register')
 
-        db.User.create(user)
-        .then (function (){
+        } else if (data.apellido == "") {
+            
+            errors.message = "El apellido es obligatorio";
+            res.locals.errors = errors;
+            
+            return res.render ('register')
 
-        return res.redirect ('/newUser')
+        } else if (data.email == "") {
+            
+            errors.message = "El email es obligatorio";
+            res.locals.errors = errors;
+            
+            return res.render ('register')
 
+        } else if (data.password == "") {
+            
+            errors.message = "La contraseña es obligatoria";
+            res.locals.errors = errors;
+            
+            return res.render ('register')
+
+        } else if (data.dni == "") {
+            
+            errors.message = "El dni es obligatorio";
+            res.locals.errors = errors;
+            
+            return res.render ('register')
+
+        } else if (data.birthDate == "") {
+            
+            errors.message = "La fecha de nacimiento es obligatoria";
+            res.locals.errors = errors;
+            
+            return res.render ('register')
+
+        } else {
+
+            db.User.findOne({
+
+                where : [{email : req.body.email}]
         })
+
+        .then (function (user) {
+
+            //Si el find encontro un usuario, significa que el email ingresado, ya esta siendo usado por otro usuario.
+            if (user != null){
+            errors.message = "El email ya esta registrado, por favor elija uno nuevo.";
+            res.locals.errors = errors;
+            
+            return res.render ('register')
+
+            } else{
+
+                let user = {
+
+                    nombre: data.nombre, 
+                    apellido: data.apellido, 
+                    birthDate: data.birthDate, 
+                    dni: data.dni, 
+                    email: data.email, 
+                    password: bcrypt.hashSync(data.password, 10),
+                    
+                }
+        
+                db.User.create(user)
+                .then (function (){
+        
+                return res.redirect ('/newUser')
+        
+                })
+
+            }
+        })
+
+        .catch(function (error){
+            console.log(error);
+        })
+
+
             .catch(function (error){
                 console.log(error);
             })
    
+        }    
         },
-
+    
 }
 
     module.exports = registerController;
