@@ -18,6 +18,14 @@
 					<h2>Iniciar sesión</h2>
 					<p>Es tu primera vez? <a id="register1" href="/register">Registrate!</a></p>
 
+					<% if (locals.errors) { %> 
+
+						<p style="color:red"> <%= locals.errors.message %> </p>
+
+					<% } %>
+
+
+
 						<form class="" action="/login" method="POST">
 
 						<li><input type="text" name="email" placeholder="Correo electrónico" value=""></li>

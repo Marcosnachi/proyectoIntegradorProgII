@@ -6,15 +6,50 @@ const loginController = {
 
     index: function (req, res) {
         
-        return res.render ('login')
-    },
+        if (req.session.user != undefined) {
+            return res.redirect ('/')
+        } else{
 
+        return res.render ('login')
+        }
+    },
+    
     login: function(req, res){
         // Buscar el usuario que se quiere loguear.
         db.User.findOne({
             where: [{email: req.body.email}]
         })
         .then( user => {
+
+            let errors = {};
+            //Chequeamos si existe el mail en la base
+
+            if (user == null) {
+                
+                //Mensaje de error
+                errors.message = "El mail ingresado no existe"
+
+                //Pasamos el mensaje a la vista
+                res.locals.errors = errors;
+
+                //Renderizamos la vista
+                return res.render ('login');
+
+            } else if (bcrypt.compareSync(req.body.password, user.password) == false) {
+
+                //Mensaje de error
+                errors.message = "La contraseña ingresada es incorrecta"
+
+                //Pasamos el mensaje a la vista
+                res.locals.errors = errors;
+
+                //Renderizamos la vista
+                return res.render ('login');
+                
+            }
+            
+            else {
+
             req.session.user = user;
             console.log('en login controller');
             console.log(req.session.user);
@@ -30,8 +65,11 @@ const loginController = {
 
             return res.redirect('/');
 
+          }
         })
         .catch( e => {console.log(e)})
+
+    
 
     },
     logout: function(req,res){

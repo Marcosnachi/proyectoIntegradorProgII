@@ -5,19 +5,14 @@ const op = db.Sequelize.Op;
 const registerController = {
 
     index: function (req, res){
-
+        
+        if (req.session.user != undefined) {
+                return res.redirect ('/')
+        } else {
              
-        db.User.findAll()
-        .then (function (){
-          
-            return res.render ('register')
-            
-        })
-
-        .catch(function (error){
-            console.log(error);
-        })
-       
+         return res.render ('register')
+    
+    }
        
     },
 

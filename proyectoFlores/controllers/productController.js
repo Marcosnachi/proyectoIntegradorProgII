@@ -17,19 +17,28 @@ const productController = {
 
     add: function (req,res) {
         
+        //Control de acceso
+        if (req.session.user == undefined) {
+
+                return res.redirect ('/register')
+
+        } else {
+
         return res.render ('productAdd')
+        }
     },
 
     store: function (req, res) {
         
         let data = req.body
+        let user = req.session.user
         
         let product = {
 
             productName: data.productName,
             description: data.description,
             image: data.image,
-            userId: data.userId
+            userId: user.id
         }
 
         db.Product.create(product)
