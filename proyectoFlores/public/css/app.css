@@ -184,6 +184,14 @@ label { font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(1
   font-family: 'Montserrat', sans-serif;
 }
 
+.products-upload-name {
+  font-size: 1.9em;
+  font-weight: 400;
+  color: var(--gray);
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 420px;
+}
+
 .product-box {
   background-color: #ffffff;
   border-radius: 5px;

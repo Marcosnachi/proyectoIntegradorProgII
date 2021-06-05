@@ -5,7 +5,16 @@ const productController = {
     show: function(req, res){
         let id = req.params.id;
 
-        db.Product.findByPk(id)
+        db.Product.findByPk(id,{
+
+            include: [
+
+                {association : 'user'}
+
+            ]
+
+
+        })
         .then(data =>{
             return res.render('product', { flores : data });
         })
