@@ -52,6 +52,13 @@ const registerController = {
             
             return res.render ('register')
 
+        } else if (data.password.length < 3) {
+
+            errors.message = "La contraseña debe tener al menos 3 caracteres";
+            res.locals.errors = errors;
+
+            return res.render ('register')
+
         } else if (data.dni == "") {
             
             errors.message = "El dni es obligatorio";

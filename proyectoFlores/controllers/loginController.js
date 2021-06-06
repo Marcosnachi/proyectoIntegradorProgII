@@ -24,10 +24,21 @@ const loginController = {
             let errors = {};
             //Chequeamos si existe el mail en la base
 
-            if (user == null) {
+            if (user == "") {
                 
                 //Mensaje de error
-                errors.message = "El mail ingresado no existe"
+                errors.message = "Ingresá un email válido"
+
+                //Pasamos el mensaje a la vista
+                res.locals.errors = errors;
+
+                //Renderizamos la vista
+                return res.render ('login');
+
+            } else if (user == null) {
+                
+                //Mensaje de error
+                errors.message = "El email ingresado no existe"
 
                 //Pasamos el mensaje a la vista
                 res.locals.errors = errors;
