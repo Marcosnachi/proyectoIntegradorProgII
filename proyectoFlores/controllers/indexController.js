@@ -69,9 +69,8 @@ const indexController = {
             //SELECT * FROM movies
             //WHERE title LIKE "%potter%"
 
-            where: [
-                {
-                [op.or]:[
+            where: [{
+                [op.or]: [
                     { 
                         productName : {
                             [op.like]: '%'+infoABuscar+'%'
@@ -84,9 +83,9 @@ const indexController = {
                     }
                 ]
             }]
-            })
+        })
             .then( data => {
-                return res.render('searchResults',{flores : data});
+                return res.render('searchResults',{flores : data, search : infoABuscar});
             })
             .catch( error => {
                 console.log(error);
