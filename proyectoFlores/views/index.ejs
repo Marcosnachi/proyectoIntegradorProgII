@@ -34,7 +34,7 @@
 						<section class="product-box">
 							<a href="/product/id/<%= flores[i].id %>">
 								<figure class="product-box_image">
-									<img src="/images/products/florfem.jpg" alt="flor1">
+									<img src="/images/products/<%= flores[i].image %>" alt="flor1">
 								</figure>
 								<article class="product-box_data">
 									<h2><%= flores[i].productName %></h2>
@@ -50,13 +50,13 @@
 				<h2 class="products-title">Más comentados</h2>
 			</div>
 
-			<% for(let i=0; i < 4; i++){ %> 
+			<% for(let i=0; i < 4 ; i++){ %> 
 					
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/product/id/<%= flores[i].id %>">
 							<figure class="product-box_image">
-								<img src="/images/products/florfem.jpg" alt="flor1">
+								<img src="/images/products/<%= flores[i].image %>" alt="flor1">
 							</figure>
 							<article class="product-box_data">
 								<h2><%= flores[i].productName %></h2>

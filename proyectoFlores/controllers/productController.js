@@ -51,9 +51,9 @@ const productController = {
         }
 
         db.Product.create(product)
-        .then(function () {
+        .then(function (product) {
 
-            return res.redirect ('/productCargado');
+            return res.render ('productCargado', {product});
             
         })
 
