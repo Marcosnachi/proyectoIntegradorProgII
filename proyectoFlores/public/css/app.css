@@ -177,11 +177,18 @@ label { font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(1
   margin-bottom: 30px;
 }
 
+.products-perfil {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  min-height: 500px;
+}
+
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
   font-family: 'Montserrat', sans-serif;
+  margin-right: 15px;
 }
 
 .products-subtitle {
@@ -192,10 +199,11 @@ label { font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(1
 
 .products-upload-name {
   font-size: 1.9em;
-  font-weight: 400;
-  color: var(--gray);
-  font-family: 'Montserrat', sans-serif;
-  margin-left: 420px;
+  font-style: italic;
+  line-height: 1.5;
+  font-family: 'Dosis', sans-serif;
+  margin-left: 450px;
+  margin-top: 50px;
 }
 
 .product-box {
@@ -283,6 +291,17 @@ label { font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(1
 .product-box:hover i {
   transform: rotate(360deg);
   box-shadow: 0 0 5px var(--green);
+}
+
+.rapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 35px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.search-products {
+  width: 250px;
 }
 
 /*====== Footer ======*/
@@ -517,11 +536,26 @@ input[type=date] {
 }
 
 .product-detail-description {
-  padding: 15px 15px 15px 40px;
+  padding: 15px 38px 15px 40px;
   font-size: 1.9em;
-  font-style: italic;
-  line-height: 1.5;
-  font-family: 'Dosis', sans-serif;
+  font-weight: 400;
+  color: var(--gray);
+  font-family: 'Playfair Display', serif;
+  background: #EBEBF2;
+  margin-left: 14px;
+  text-align: justify;
+}
+
+.boton-editar-product{
+  background-color: #1259c3;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 15px;
+}
+
+h2.title-edit{
+  margin-bottom: 30px !important;
 }
 
 .product-detail-price {

@@ -13,15 +13,13 @@ const productController = {
 
             ]
 
-
         })
-        .then(data =>{
-            return res.render('product', { flores : data });
-        })
-        
-        .catch(error =>{
-            console.log(error);
-        })
+            .then(data =>{
+                return res.render('product', { flores : data });
+            })
+            .catch(error =>{
+                console.log(error);
+            })
     },
 
     add: function (req,res) {

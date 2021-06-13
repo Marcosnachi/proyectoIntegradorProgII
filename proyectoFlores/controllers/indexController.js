@@ -3,8 +3,17 @@ const op = db.Sequelize.Op
 
 const indexController = {
     index: function(req, res){
+        
         //Nuestro código.
-        db.Product.findAll()
+        db.Product.findAll({
+
+            include: [
+
+                {association : 'user'}
+
+            ]
+            
+        })
             .then( data => {
                 return res.render('index', { flores: data })
             })

@@ -19,10 +19,7 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"> <%= flores.productName %> </h2> 
-			<p class="product-detail-description">
-				<a href="/product/add">Editar</a>
-			</p>
-			<h3 class="products-upload-name"> Producto cargado por <%= flores.user.nombre %> <%= flores.user.apellido %>  </h3>
+				<a class="boton-editar-product ml-4" href="/product/add">Editar</a>
 		</div>
 		<div class="product-detail"> 
 			<div class="row">
@@ -31,6 +28,7 @@
 					<p class="product-detail-description">
 						<%= flores.description %>
 					</p>
+					<p class="products-upload-name"> Producto cargado por <a href="/profile/id/<%= flores.user.id %>"><%= flores.user.nombre %> <%= flores.user.apellido %></a>  </p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
