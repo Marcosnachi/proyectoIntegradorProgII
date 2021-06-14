@@ -10,23 +10,30 @@
 	<!-- Header -->
 	<%- include('./partials/headerLogueado') %> 
 	<!-- /Header -->
-
+			
 	<div class="container products-wrapper">
 		<div class="row">			
 			<div id="wrapper">
 				<div id="div2">
-					<h2>Agregar producto</h2>
-					<form class="" action="/product/store" method="POST" enctype="multipart/form-data">
+					<h2>Editar producto</h2>
+
+					<% if (locals.errors) { %> 
+
+						<p class="errors"> <%= locals.errors.message %> </p>
+
+					<% } %>
+
+					<form class="" action="/product/edit" method="POST" enctype="multipart/form-data">
+						
 						<br>
 						<p>Nombre del producto</p>
-						<li><input type="text" name="productName" value=""></li>
+						<li><input type="text" name="productName" value="<%= product.productName %>"></li>
 
 						<p>Descripción</p>
-						<li><textarea style="width: 390px; height: 6em;" type="text" name="description" value=""></textarea></li>
+						<li><textarea style="width: 390px; height: 6em;" type="text" name="description" value="<%= product.description %>"></textarea></li>
 
 						<p>Imágen del producto</p>
 						<input type="file" name="image" value="">
-
 
 						<li><input type="submit" value="Enviar"></li>
 

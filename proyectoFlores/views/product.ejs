@@ -18,10 +18,13 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> <%= flores.productName %> </h2> 
-				<a class="boton-editar-product ml-4" href="/product/add">Editar</a>
+			<h2 class="products-title"> <%= flores.productName %> </h2>
+
+			<% if(locals.user && locals.user.id == flores.userId) { %>
+				<a class="boton-editar-product ml-4" href="/product/edit">Editar</a>
+			<% } %>
 		</div>
-		<div class="product-detail"> 
+		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="/images/products/<%= flores.image %>" alt="" class="product-detail-img">
@@ -32,16 +35,20 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
+
+						<% for(let i=0; i < flores.comments.length ; i++){ %>
 						<article>
-							<img src="/images/users/martin-durabossi.jpg" alt="">
+							<img src="/images/users/marce.jpg" alt="">
 							<div class="data">
 								<p class="user">
-								<strong> <a href="/profile/id/1"> Martin Bossi: </a> </strong>
-								A mi mujer le gustan las rosas, pero veo que estas rosas son rojas, no estoy encontrando en su pagina rosas de color rosa. Me podrian decir donde encontrarlas? gracias
+								<strong> <a href="/profile/id/<%= flores.comments[i].userId %>"> <%= flores.comments[i].user.nombre %> <%= flores.comments[i].user.apellido %>: </a> </strong>
+								<%= flores.comments[i].text %>
 								</p>
 							</div>
 						</article>
-						<article>
+						<% } %>
+
+						<!-- <article>
 							<img src="/images/users/marce.jpg" alt="">
 							<div class="data">
 								<p class="user">
@@ -76,9 +83,11 @@
 									AlTas FlooRes Wacchoo! rOJAS como ell amohor de mii vidaa, NEWELLS! no tengO nAda de KE quejarme, sOLO puedO DEcir VAMMMOO NEWELLS!!!!!
 								</p>
 							</div>
-						</article>
+						</article> -->
 					</section>
-					<form class="form" action="/product/addComment/<%= flores.id %> " method="POST">
+
+					<% if(locals.user) { %>
+					<form class="form" action="/product/addComment/<%= flores.id %>" method="POST">
 						<input class="form-input" type="text" value="" name="text" placeholder="Agregar comentario">
 						
 						    <!-- <p>
@@ -90,12 +99,13 @@
 							<label for="userId"> Usuario que comenta:</label>
 							<input type="number" name="userId" value="">
 							</p> -->
-						
-						
-						
-						
+					
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
+
+					<% } else { %>
+					<p>Para comentar tenes que <a href="/register">registrarte</a> o <a href="/login">iniciar sesión</a></p>
+					<% } %>
 				</div>
 			</div>
 		</div>

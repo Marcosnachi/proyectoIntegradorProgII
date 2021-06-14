@@ -16,26 +16,32 @@
 			<div id="wrapper">
 				<div id="div2">
 				<h2 class="title-edit">Editar mi perfil</h2>
+
+				<% if (locals.errors) { %> 
+
+					<p class="errors"> <%= locals.errors.message %> </p>
+
+				<% } %>
 				
-				<form action="/profile" method="GET">
+				<form action="/profile/edit" method="POST" enctype="multipart/form-data">
 					
-					<li><input id="nombre" type="text" name="nombre" placeholder="Nombre" value=""><input id="apellido" type="text" placeholder="Apellidos" name="apellido" value=""></li>
+					<li><input id="nombre" type="text" name="nombre" placeholder="Nombre" value="<%= user.nombre %>"><input id="apellido" type="text" placeholder="Apellidos" name="apellido" value="<%= user.apellido %>"></li>
 						
-					<li><input type="text" placeholder="Correo electrónico" name="email" value=""></li>
+					<li><input type="text" placeholder="Correo electrónico" name="email" value="<%= user.email %>"></li>
 
 					<li><input type="password" placeholder="Contraseña" name="password" value=""></li>
 					
-					<li><input type="text" placeholder="Número de DNI" name="dni" value=""></li>
+					<li><input type="text" placeholder="Número de DNI" name="dni" value="<%= user.dni %>"></li>
 
 					<p>Fecha de nacimiento</p>
 					
-					<li><input type="date" name="birthDate" value=""></li>
+					<li><input type="date" name="birthDate" value="<%= user.birthDate %>"></li>
 					<br>
 
-					<li><input type="submit" value="Confirmar"></li>
-
+					<li><input type="submit" value="Actualizar datos"></li>
 
 				</form>
+
 				</div>		
 			</div>		
 		</div>

@@ -17,11 +17,11 @@ var storage = multer.diskStorage({
   var upload = multer({ storage: storage })
 
 
-
-
 router.get('/id/:id', productController.show);
 router.get('/add', productController.add);
-router.post('/store', upload.single('imagen'), productController.store);
+router.post('/store', upload.single('image'), productController.store);
 router.post('/addComment/:id', productController.addComment);
+router.get('/edit/:productId', productController.edit);
+router.post('/edit', upload.single('avatar'), productController.update);
 
 module.exports = router;

@@ -11,8 +11,14 @@ const indexController = {
 
                 {association : 'user'}
 
-            ]
-            
+            ],
+
+            order: [
+
+                ['id', 'DESC'],
+
+            ],
+
         })
             .then( data => {
                 return res.render('index', { flores: data })
@@ -77,6 +83,12 @@ const indexController = {
         db.Product.findAll({
             //SELECT * FROM movies
             //WHERE title LIKE "%potter%"
+
+            include: [
+
+                {association : 'user'}
+
+            ],
 
             where: [{
                 [op.or]: [
