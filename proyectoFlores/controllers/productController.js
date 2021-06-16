@@ -10,14 +10,16 @@ const productController = {
             include: [
 
                 {association : 'user'},
+                
                 {association : 'comments',
-                include: [
-                    {association : 'user'}
-                ]}
-
-            ]
-
+                include: [{association: 'user'}]            
+            }],
+            
+            order: [['comments', 'id', 'desc']]   
         })
+
+    
+
             .then(data =>{
                 return res.render('product', { flores : data });
             })
@@ -79,7 +81,7 @@ const productController = {
             productId: id
             
         }
-        res.send(comment)
+        
         db.Comment.create(comment)
         .then(function (comment) {
 
