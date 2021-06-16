@@ -23,14 +23,14 @@
 
 					<% } %>
 
-					<form class="" action="/product/edit" method="POST" enctype="multipart/form-data">
+					<form class="" action="/product/edit/<%= product.id %>" method="POST" enctype="multipart/form-data">
 						
 						<br>
 						<p>Nombre del producto</p>
 						<li><input type="text" name="productName" value="<%= product.productName %>"></li>
 
 						<p>Descripción</p>
-						<li><textarea style="width: 390px; height: 6em;" type="text" name="description" value="<%= product.description %>"></textarea></li>
+						<li><textarea style="width: 390px; height: 6em;" type="text" name="description"><%= product.description %></textarea></li>
 
 						<p>Imágen del producto</p>
 						<input type="file" name="image" value="">

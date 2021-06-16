@@ -8,7 +8,11 @@
 <body>
 
 	<!-- Header -->
-	<%- include('./partials/header') %>
+	<% if (locals.user) { %>
+		<%- include('./partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('./partials/header') %>
+	<% } %>
 	<!-- /Header -->
 
 	<div class="container products-wrapper">

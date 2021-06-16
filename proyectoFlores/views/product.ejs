@@ -21,7 +21,7 @@
 			<h2 class="products-title"> <%= flores.productName %> </h2>
 
 			<% if(locals.user && locals.user.id == flores.userId) { %>
-				<a class="boton-editar-product ml-4" href="/product/edit">Editar</a>
+				<a class="boton-editar-product ml-4" href="/product/edit/<%= flores.id %>">Editar</a>
 			<% } %>
 		</div>
 		<div class="product-detail">

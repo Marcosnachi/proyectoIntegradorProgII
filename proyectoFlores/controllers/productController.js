@@ -19,7 +19,6 @@ const productController = {
 
         })
             .then(data =>{
-
                 return res.render('product', { flores : data });
             })
             .catch(error =>{
@@ -101,51 +100,56 @@ const productController = {
         let productId = req.params.productId;
 
         //Evitar que el usuario cambie el id en la url
-        if(productId != req.session.product.id){
-            //Redireccionar a la ruta del usuario logueado
-            return res.redirect(`/product/edit/${req.session.product.id}`)
-        } else {
+        // if(productId != req.session.user.id){
+        //     //Redireccionar a la ruta del usuario logueado
+        //     return res.redirect(`/product/edit/${req.session.user.id}`)
+        // } else {
             //Recuperar los datos del usuario y pasarlo al form de edición
-            db.User.findByPk(productId)
+            db.Product.findByPk(productId)
                 .then( function(product){
-                    return res.render('productEdit', { productEdit:product})
+
+                    return res.render('productEdit', {product})
                 })
                 .catch( e => {console.log(e)})
-        }
     },
 
 
     update: function(req, res){
         //Vamoa a actualizar un producto
-        let product = {
-            productName: req.body.productName,
-            image: '',
-            description: req.body.description,
-        }
+        let productId = req.params.productId
 
-        //Tenemos que pensar como completar password y avatar.
-        if(req.file == undefined){
-            product.image = req.session.product.image;
-        } else {
-            user.image = req.file.filename;
-        }
+        db.Product.findByPk(productId)
 
-        db.Product.update(product, {
-            where:{
-                id: req.session.user.id
-            }
-        })
-            .then(function(id){
-                //Vemos... Actualizar los datos de session y redirecciona a la home.
-                user.id = req.session.user.id;
-                req.session.user = user;
-                return res.redirect('/');
-                
-            })
-            .catch( e => {console.log(e)})
+                .then( function(productOrigin){
 
+                    let product = {
+                        productName: req.body.productName,
+                        image: '',
+                        description: req.body.description,
+                    }
+            
+                    if(req.file == undefined){
+                        product.image = productOrigin.image
+                    } else {
+                        product.image = req.file.filename;
+                    }
+            
+                    db.Product.update(product, {
+                        where:{
+                            id: productOrigin.id
+                        }
+                    })
+                        .then(function(id){
+                            //Vemos... Actualizar los datos de session y redirecciona a la home.
+                            product.id = productOrigin.id;
+                            return res.redirect('/');
+                            
+                        })
+                        .catch( e => {console.log(e)})
+                    })  
+        
+                .catch( e => {console.log(e)})
     }
-
 }
 
 module.exports = productController;
