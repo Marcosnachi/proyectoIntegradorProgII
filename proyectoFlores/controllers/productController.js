@@ -151,6 +151,28 @@ const productController = {
                     })  
         
                 .catch( e => {console.log(e)})
+    },
+
+    destroy: function (req, res) {
+        
+        let productABorrar = req.params.id;
+        
+        
+        db.Product.destroy({
+
+            where: [
+                { id: productABorrar}
+            ]
+           
+        })
+       
+        .then( function () {
+        
+        return res.redirect ('/');
+
+        })
+
+        .catch( e => {console.log(e)})
     }
 }
 

@@ -23,5 +23,6 @@ router.post('/store', upload.single('image'), productController.store);
 router.post('/addComment/:id', productController.addComment);
 router.get('/edit/:productId', productController.edit);
 router.post('/edit/:productId', upload.single('avatar'), productController.update);
+router.post('/delete/:id', productController.destroy);
 
 module.exports = router;

@@ -5,7 +5,10 @@ module.exports = {
     "database": "proyectoflores",
     "host": "127.0.0.1",
     "port": "3306",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define":{
+      "paranoid":true
+    }
   },
   "test": {
     "username": "root",
