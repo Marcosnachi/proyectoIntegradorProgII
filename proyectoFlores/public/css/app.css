@@ -231,6 +231,7 @@ text-decoration: underline;
 }
 
 .product-box_image {
+  position: relative;
   border: 3px solid;
   border-color: #759c12;
 }
@@ -314,6 +315,12 @@ text-decoration: underline;
 
 .search-products {
   width: 250px;
+}
+
+.discount{
+  position: absolute;
+  width: 25%;
+  right: 0px;
 }
 
 /*====== Footer ======*/

@@ -144,7 +144,7 @@ const productController = {
                         .then(function(id){
                             //Vemos... Actualizar los datos de session y redirecciona a la home.
                             product.id = productOrigin.id;
-                            return res.redirect('/');
+                            return res.redirect(`/product/id/${product.id}`);
                             
                         })
                         .catch( e => {console.log(e)})

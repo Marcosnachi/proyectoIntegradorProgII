@@ -22,10 +22,18 @@
 
 			<% if(locals.user && locals.user.id == flores.userId) { %>
 				<a class="boton-editar-product ml-4" href="/product/edit/<%= flores.id %>">Editar</a>
+
+				<script language="JavaScript">
+					function pregunta(){
+						if (confirm('¿Estás seguro de que querés eliminar tu producto? No vas a poder volver atrás.')){
+						   document.deleteForm.submit()
+						}
+					}
+				</script>
 				
-				<form action="/product/delete/<%= flores.id %>" method="POST">
+				<form name="deleteForm" action="/product/delete/<%= flores.id %>" method="POST">
 				
-					<button type="submit" class="boton-eliminar-product ml-4"> Eliminar producto </button>
+					<input type="button" onclick="pregunta()" class="boton-eliminar-product ml-4" value="Eliminar producto">
 
 				</form>	
 				
