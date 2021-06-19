@@ -190,7 +190,7 @@ label { font-size: 14px; font-family: Arial, Helvetica, sans-serif; color: rgb(1
 
 .xComment2{
 font-size: 19px;
-color: royalblue;
+color: #31c312;
 text-decoration: underline;
 }
 
@@ -492,7 +492,7 @@ text-decoration: underline;
  font-size:19px;
  margin-top: 10px;
  margin-bottom: 10px;
- background-color: #1259c3;
+ background-color: #31c312;
  padding: 10px 20px;
  border-radius: 4px;
  color: #fff;
@@ -559,10 +559,18 @@ input[type=date] {
 }
 
 .boton-editar-product{
-  background-color: #1259c3;
+  background-color: #31c312;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
+  font-size: 15px;
+}
+
+.boton-eliminar-product{
+  background-color: rgb(255 242 8);
+  padding: 9px 20px;
+  border-radius: 4px;
+  color: rgb(0, 0, 0);
   font-size: 15px;
 }
 
@@ -612,9 +620,10 @@ h2.title-edit{
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: #31c312;
   font-size: 1.6em;
   color: #ffffff;
+  font-weight: bold;
   padding: 15px;
   border-radius: 8px;
   border: none;

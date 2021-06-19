@@ -7,7 +7,7 @@ module.exports = {
     "port": "3306",
     "dialect": "mysql",
     "define":{
-      "paranoid":true
+      "onDelete":"cascade"
     }
   },
   "test": {

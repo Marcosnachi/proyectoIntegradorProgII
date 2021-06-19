@@ -156,7 +156,7 @@ const productController = {
     destroy: function (req, res) {
         
         let productABorrar = req.params.id;
-
+        
         
         db.Product.destroy({
 
@@ -167,9 +167,9 @@ const productController = {
         })
        
         .then( function () {
-        
-        return res.redirect ('/');
 
+            return res.redirect ('/');
+    
         })
 
         .catch( e => {console.log(e)})
