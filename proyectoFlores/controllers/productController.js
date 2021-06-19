@@ -156,14 +156,14 @@ const productController = {
     destroy: function (req, res) {
         
         let productABorrar = req.params.id;
-        
+
         
         db.Product.destroy({
 
             where: [
                 { id: productABorrar}
             ]
-           
+        
         })
        
         .then( function () {
