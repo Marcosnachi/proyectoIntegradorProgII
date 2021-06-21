@@ -128,6 +128,7 @@ const productController = {
                         productName: req.body.productName,
                         image: '',
                         description: req.body.description,
+                        userId: req.session.user.id
                     }
             
                     if(req.file == undefined){
