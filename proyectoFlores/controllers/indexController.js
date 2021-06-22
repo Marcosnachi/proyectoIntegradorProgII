@@ -17,7 +17,7 @@ const indexController = {
 
                 ['id', 'DESC'],
 
-            ],
+            ]       
 
         })
             .then( data => {

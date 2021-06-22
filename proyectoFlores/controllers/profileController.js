@@ -50,7 +50,7 @@ const profileController = {
             dni: req.body.dni,
             email: req.body.email,
             password: '',
-            avatar: ''
+            image: ''
         }
 
         //Tenemos que pensar como completar password y avatar.
@@ -60,9 +60,9 @@ const profileController = {
             user.password = bcrypt.hashSync(req.body.password, 10);
         }
         if(req.file == undefined){
-            user.avatar = req.session.user.avatar;
+            user.image = req.session.user.image;
         } else {
-            user.avatar = req.file.filename;
+            user.image = req.file.filename;
         }
 
         db.User.update(user, {
@@ -70,11 +70,11 @@ const profileController = {
                 id: req.session.user.id
             }
         })
-            .then(function(id){
+            .then(function(){
                 //Vemos... Actualizar los datos de session y redirecciona a la home.
                 user.id = req.session.user.id;
                 req.session.user = user;
-                return res.redirect('/');
+                return res.redirect(`/profile/id/${user.id}`);
                 
             })
             .catch( e => {console.log(e)})

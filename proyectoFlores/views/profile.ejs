@@ -19,7 +19,7 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="/images/users/fotoPerfil.jpg" alt="foto de perfil" class="foto-perfil">
+				<img src="/images/users/<%= flores.image %>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
@@ -61,7 +61,7 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 
-			<% if(flores) { %>
+			<% if(flores.products.length) { %>
 				<% for(let i=0; i < flores.products.length; i++){ %>
 						<div class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box">

@@ -15,11 +15,13 @@ const productController = {
                 include: [{association: 'user'}]            
             }],
             
-            order: [['comments', 'id', 'desc']]   
+            order: [
+
+                ['comments', 'id', 'desc']
+
+            ]
+              
         })
-
-    
-
             .then(data =>{
                 return res.render('product', { flores : data });
             })
@@ -110,7 +112,16 @@ const productController = {
             db.Product.findByPk(productId)
                 .then( function(product){
 
+                if (req.session.user == undefined) {
+
+                    return res.redirect ('/login')
+        
+                } else {
+
                     return res.render('productEdit', {product})
+                
+                }
+                
                 })
                 .catch( e => {console.log(e)})
     },

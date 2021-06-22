@@ -53,7 +53,7 @@
 
 						<% for(let i=0; i < flores.comments.length ; i++){ %>
 						<article>
-							<img src="/images/users/marce.jpg" alt="">
+							<img src="/images/users/<%= flores.comments[i].user.image %>" alt="">
 							<div class="data">
 								<p class="user">
 								<strong> <a href="/profile/id/<%= flores.comments[i].userId %>"> <%= flores.comments[i].user.nombre %> <%= flores.comments[i].user.apellido %>: </a> </strong>

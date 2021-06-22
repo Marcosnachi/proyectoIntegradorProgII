@@ -89,7 +89,7 @@ const registerController = {
             
             return res.render ('register')
 
-            } else{
+            } else {
 
                 let user = {
 
@@ -97,9 +97,10 @@ const registerController = {
                     apellido: data.apellido, 
                     birthDate: data.birthDate, 
                     dni: data.dni, 
-                    email: data.email, 
+                    email: data.email,
+                    image: req.file.filename,
                     password: bcrypt.hashSync(data.password, 10),
-                    
+
                 }
         
                 db.User.create(user)

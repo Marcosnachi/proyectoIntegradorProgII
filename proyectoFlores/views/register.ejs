@@ -24,7 +24,7 @@
 
 					<% } %>
 					
-					<form class="" action="/register/store" method="POST">
+					<form class="" action="/register/store" method="POST" enctype="multipart/form-data">
 
 						<li><input id="nombre" type="text" name="nombre" placeholder="Nombre" value=""><input id="apellido" type="text" placeholder="Apellidos" name="apellido" value=""></li>
 						
@@ -33,6 +33,10 @@
 						<li><input type="password" placeholder="Contraseña" name="password" value=""></li>
 						
 						<li><input type="text" placeholder="Número de DNI" name="dni" value=""></li>
+
+						<p>Foto de perfil</p>
+					
+						<input type="file" name="image" value="">
 
 						<p>Fecha de nacimiento</p>
 						
