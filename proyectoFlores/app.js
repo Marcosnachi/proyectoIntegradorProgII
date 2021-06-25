@@ -11,9 +11,14 @@ let productRouter = require ('./routes/product');
 let profileRouter = require ('./routes/profile');
 let registerRouter = require ('./routes/register');
 let loginRouter = require ('./routes/login');
+let functions = require('./functions/functions.js');
+
 const db = require('./database/models');
 
 var app = express();
+
+// Functions como variable global
+app.locals.functions = functions;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

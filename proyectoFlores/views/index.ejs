@@ -8,6 +8,7 @@
 <body>
 
 	<!-- Header -->
+
 	<% if (locals.user) { %>
 		<%- include('./partials/headerLogueado') %>
 	<% } else { %>
@@ -29,19 +30,19 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			
-				<% for(let i=0; i < 4; i++){ %>
+			<% for(let flor of flores.slice(0, 4)){ %>
 						
 					<div class="col-12 col-sm-6 col-lg-3">
 						<section class="product-box">
-							<a href="/product/id/<%= flores[i].id %>">
+							<a href="/product/id/<%= flor.id %>">
 								<figure class="product-box_image">
-									<img src="/images/products/<%= flores[i].image %>" alt="flor1">
+									<img src="/images/products/<%= flor.image %>" alt="flor1">
 									<img class="discount" src="/images/discount.png" alt="discount">
 								</figure>
 								<article class="product-box_data">
-									<h2><%= flores[i].productName %></h2>
-									<p><%= flores[i].description %></p>
-									<p>Cargado por: <%= flores[i].user.nombre %> <%= flores[i].user.apellido %></p>
+									<h2><%= flor.productName %></h2>
+									<p><%= flor.description %></p>
+									<p>Cargado por: <%= flor.user.nombre %> <%= flor.user.apellido %></p>
 									<!-- <p>Comentarios: 12</p> -->
 								</article>
 							</a>
@@ -54,19 +55,19 @@
 			<div class="col-12">
 				<h2 class="products-title">Más comentados</h2>
 			</div>
-
-			<% for(let i=4; i < 8 ; i++){ %>
+						
+			<% for(let flor of functions.getFloresOrdenadas(flores, 4, 'comments')){ %>
 					
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/product/id/<%= flores[i].id %>">
+						<a href="/product/id/<%= flor.id %>">
 							<figure class="product-box_image">
-								<img src="/images/products/<%= flores[i].image %>" alt="flor1">
+								<img src="/images/products/<%= flor.image %>" alt="flor1">
 							</figure>
 							<article class="product-box_data">
-								<h2><%= flores[i].productName %></h2>
-								<p><%= flores[i].description %></p>
-								<p>Cargado por: <%= flores[i].user.nombre %> <%= flores[i].user.apellido %></p>
+								<h2><%= flor.productName %></h2>
+								<p><%= flor.description %></p>
+								<p>Cargado por: <%= flor.user.nombre %> <%= flor.user.apellido %></p>
 								<!-- <p>Comentarios: 12</p> -->
 							</article>
 						</a>
