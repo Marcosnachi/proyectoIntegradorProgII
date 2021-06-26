@@ -583,12 +583,18 @@ input[type=date] {
 }
 
 .comment-button {
-  background-color: rgb(255 242 8);
+  border-color: #28a745;
+  background-image: url(/images/trash-alt-solid.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
   margin-left: 250px;
-  border-radius: 4px;
+  width: 16px;
+  background-color: #fff200;
+  cursor: pointer;
 }
 
-#deleteComment {
+.boton-delete-comment {
   font-size: 15px;
   color: rgb(255 242 8);
   cursor: pointer;
