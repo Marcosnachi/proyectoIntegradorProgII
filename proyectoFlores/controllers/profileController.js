@@ -13,6 +13,12 @@ const profileController = {
                 {association : 'products'},
                 {association : 'comments'}
 
+            ],
+
+            order: [
+
+                ['products', 'id', 'desc']
+
             ]
             
         })

@@ -102,6 +102,11 @@ const indexController = {
                         description : {
                             [op.like]: '%'+infoABuscar+'%'
                         }
+                    },
+                    { 
+                        userId : {
+                            [op.like]: '%'+infoABuscar+'%'
+                        }
                     }
                 ]
             }]

@@ -185,6 +185,27 @@ const productController = {
         })
 
         .catch( e => {console.log(e)})
+    },
+
+    destroyComment: function (req, res) {
+        
+        let commentABorrar = req.params.id;
+        
+        db.Comment.destroy({
+
+            where: [
+                { id: commentABorrar}
+            ]
+        
+        })
+    
+        .then( function () {
+
+            return res.redirect ('back');
+
+        })
+
+        .catch( e => {console.log(e)})
     }
 }
 

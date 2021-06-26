@@ -24,5 +24,6 @@ router.post('/addComment/:id', productController.addComment);
 router.get('/edit/:productId', productController.edit);
 router.post('/edit/:productId', upload.single('image'), productController.update);
 router.post('/delete/:id', productController.destroy);
+router.post('/deleteComment/:id', productController.destroyComment);
 
 module.exports = router;

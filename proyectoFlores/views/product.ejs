@@ -58,6 +58,21 @@
 								<p class="user">
 								<strong> <a href="/profile/id/<%= flores.comments[i].userId %>"> <%= flores.comments[i].user.nombre %> <%= flores.comments[i].user.apellido %>: </a> </strong>
 								<%= flores.comments[i].text %>
+								<% if(locals.user && locals.user.id == flores.comments[i].userId) { %>
+
+								<script language="JavaScript">
+									function pregunta(){
+										if (confirm('¿Estás seguro de que querés eliminar tu comentario? No vas a poder volver atrás.')){
+											document.deleteComment.submit()
+										}
+									}
+								</script>
+
+								<form name="deleteComment" action="/product/deleteComment/<%= flores.comments[i].id %>" method="POST">
+								<button class="comment-button"><img id="deleteComment" src="/images/trash-alt-solid.svg" alt=""></button>
+								</form>
+
+								<% } %>
 								</p>
 							</div>
 						</article>
