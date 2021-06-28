@@ -24,12 +24,8 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 
-					<% if(locals.user && locals.user.id == id) { %>
-						<h1 class="main-title"><%= locals.user.nombre %> <%= locals.user.apellido %>
-					<% } else { %>
-						<h1 class="main-title"><%= flores.nombre %> <%= flores.apellido %>
-					<% } %>
-
+					<h1 class="main-title"><%= flores.nombre %> <%= flores.apellido %>
+						
 					<% if(locals.user && locals.user.id == id) { %>
 						<a href="/profile/edit/">
 							<i class="fas fa-cog"></i>
