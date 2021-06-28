@@ -82,8 +82,6 @@ const indexController = {
         let infoABuscar = req.query.search; //obtengo la info de la querystring.
 
         db.Product.findAll({
-            //SELECT * FROM movies
-            //WHERE title LIKE "%potter%"
 
             include: [
 

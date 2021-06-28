@@ -1,9 +1,7 @@
 module.exports = function(sequelize, dataTypes){
 
-    //Definir un alias.
-    let alias = 'Product'; //Con este alias sequelize va a identificar internamente al archivo de modelo.
+    let alias = 'Product';
 
-    //Describir la configuración de las columnas de la tabla
     let cols = {
         id:{
             autoIncrement: true,
@@ -26,8 +24,8 @@ module.exports = function(sequelize, dataTypes){
 
     let config = {
         tableName: 'products',
-        timestamps: true, //Si la tabla no tiene los campos created_at y updated_at
-        underscored: false, //Si los nombres de las columnas en la db tienen guiones bajos en lugar de camelCase.        
+        timestamps: true,
+        underscored: false,      
     }
 
    const Product = sequelize.define(alias, cols, config);

@@ -368,6 +368,7 @@ text-decoration: underline;
 .social {
   text-align: center;
   width: 100%;
+  margin-bottom: -44px;
 }
 
 .fa {

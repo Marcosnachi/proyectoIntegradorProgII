@@ -61,17 +61,9 @@
 
 								<% if(locals.user && locals.user.id == flores.comments[i].userId) { %>
 
-								<script language="JavaScript">
-									function pregunton(){
-										if (confirm('¿Estás seguro de que querés eliminar tu comentario? No vas a poder volver atrás.')){
-											document.deleteComment.submit()
-										}
-									}
-								</script>
-
-								<form name="deleteComment" action="/product/deleteComment/<%= flores.comments[i].id %>" method="POST">
+								<form action="/product/deleteComment/<%= flores.comments[i].id %>" method="POST" onsubmit="return confirm('¿Estás seguro de que querés eliminar tu comentario? No vas a poder volver atrás.')">
 									
-								<input type="button" onclick="pregunton()" class="comment-button">
+								<input type="submit" class="comment-button" value="">
 
 								</form>
 
@@ -80,60 +72,16 @@
 							</div>
 						</article>
 						<% } %>
-
-						<!-- <article>
-							<img src="/images/users/marce.jpg" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/profile/id/2"> Marcelo Tinelli: </a> </strong>
-									El producto es de tremenda calidad! Lastima el vendedor que ademas de que se demoro en despacharlas ni respondia a mis preguntas una vez pague.
-								</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/users/d10s.jpg" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/profile/id/3"> Lionel Messi:</a> </strong>
-									Estas flores son un 10, como yo. Suerte que está Merca Do Flores en el barrio para salvar mi matrimonio con Anto.
-								</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/users/peludo2.jpg" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/profile/id/4"> Hagrid:</a> </strong>
-									En mi jardín tengo unas parecidas a estas. La calidad es así como se muestra en la foto? O después voy a tener que usar una poción Fertilizante?
-								</p>
-							</div>
-						</article>
-						<article>
-							<img src="/images/users/kiko.jpg" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/profile/id/5"> KIko Zoona SUUr:</a> </strong>
-									AlTas FlooRes Wacchoo! rOJAS como ell amohor de mii vidaa, NEWELLS! no tengO nAda de KE quejarme, sOLO puedO DEcir VAMMMOO NEWELLS!!!!!
-								</p>
-							</div>
-						</article> -->
+						
 					</section>
 
 					<% if(locals.user) { %>
 					<form class="form" action="/product/addComment/<%= flores.id %>" method="POST">
+
 						<input class="form-input" type="text" value="" name="text" placeholder="Agregar comentario">
-						
-						    <!-- <p>
-							<label for="productId"> Producto que se comenta:</label>
-							<input type="number" name="productId" value="">
-							</p>
-		
-							<p>
-							<label for="userId"> Usuario que comenta:</label>
-							<input type="number" name="userId" value="">
-							</p> -->
 					
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+
 					</form>
 
 					<% } else { %>

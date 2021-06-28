@@ -16,11 +16,10 @@ const registerController = {
        
     },
 
-
     store: function (req, res){
 
         let data = req.body;
-        errors = {};
+        let errors = {};
 
 
         //Vamos a chequear que el mail no este vacio
@@ -98,10 +97,16 @@ const registerController = {
                     birthDate: data.birthDate, 
                     dni: data.dni, 
                     email: data.email,
-                    image: req.file.filename,
+                    image: '',
                     password: bcrypt.hashSync(data.password, 10),
 
                 }
+
+            if (req.file == undefined) {
+                user.image = 'perfil_generico.png'
+            } else {
+                user.image = req.file.filename
+            }
         
                 db.User.create(user)
                 .then (function (){
